@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TrendingRecentNewSelection extends StatefulWidget {
-  const TrendingRecentNewSelection({super.key});
+  const TrendingRecentNewSelection({super.key, });
 
   @override
   State<TrendingRecentNewSelection> createState() =>

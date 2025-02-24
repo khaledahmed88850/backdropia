@@ -1,11 +1,14 @@
 import 'package:backdropia/constants.dart';
+import 'package:backdropia/core/models/wallpaper/wallpaper.dart';
+import 'package:backdropia/core/utils/assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class WallpaperItem extends StatelessWidget {
-  const WallpaperItem({super.key});
-
+  const WallpaperItem({super.key, required this.wallpaper});
+  final Wallpaper wallpaper;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -17,7 +20,7 @@ class WallpaperItem extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.r),
               child: CachedNetworkImage(
-                imageUrl: testImagePortrait,
+                imageUrl: wallpaper.urls!.regular ?? testImagePortrait,
                 fit: BoxFit.fill,
               ),
             ),
@@ -26,16 +29,14 @@ class WallpaperItem extends StatelessWidget {
         Positioned(
           left: 5.w,
           bottom: 5.h,
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.black45,
-            ),
+          child: CircleAvatar(
+            backgroundColor: Colors.black45,
+            radius: 12.r,
             child: Center(
-              child: Icon(
-                Icons.favorite_border_outlined,
-                color: Colors.white,
-                size: 18.sp,
+              child: SvgPicture.asset(
+                Assets.assetsSvgsFavouriteIcon,
+                height: 15.h,
+                width: 15.w,
               ),
             ),
           ),

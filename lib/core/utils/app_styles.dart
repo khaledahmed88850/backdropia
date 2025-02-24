@@ -19,6 +19,10 @@ class Styles {
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle bold16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
   static TextStyle semiBold16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,

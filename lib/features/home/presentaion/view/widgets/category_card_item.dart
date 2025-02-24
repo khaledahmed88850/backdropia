@@ -1,31 +1,35 @@
+import 'package:backdropia/core/utils/app_styles.dart';
+import 'package:backdropia/features/category/data/models/category_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../constants.dart';
 
 class CategoryCardItem extends StatelessWidget {
-  const CategoryCardItem({super.key});
-
+  const CategoryCardItem({super.key, required this.categoryModel});
+  final CategoryModel categoryModel;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 80.w,
       decoration: BoxDecoration(
+        boxShadow: [BoxShadow(
+          offset: Offset(0, 0),
+          blurRadius: 2,
+          color: Colors.black
+        )],
         image: DecorationImage(
+
           fit: BoxFit.fill,
-          image: CachedNetworkImageProvider(testImage),
-          opacity: 1,
+          image: CachedNetworkImageProvider(categoryModel.imageUrl),
+          opacity: 0.8,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       child: Center(
         child: Text(
-          'asdasda',
-          style: const TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          categoryModel.name,
+          style: Styles.bold16.copyWith(color: Colors.white )
         ),
       ),
     );

@@ -1,15 +1,18 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for assetsImagesPexelsTobiasbjorkli1663376
   /// assets/images/pexels-tobiasbjorkli-1663376.jpg
-  static const String assetsImagesPexelsTobiasbjorkli1663376 =
-      "assets/images/pexels-tobiasbjorkli-1663376.jpg";
+  static const String assetsImagesPexelsTobiasbjorkli1663376 = "assets/images/pexels-tobiasbjorkli-1663376.jpg";
 
   /// Assets for assetsSvgsCategoriesbar
   /// assets/svgs/categoriesbar.svg
   static const String assetsSvgsCategoriesbar = "assets/svgs/categoriesbar.svg";
+
+  /// Assets for assetsSvgsFavouriteIcon
+  /// assets/svgs/favourite_icon.svg
+  static const String assetsSvgsFavouriteIcon = "assets/svgs/favourite_icon.svg";
 
   /// Assets for assetsSvgsFavouritesbar
   /// assets/svgs/favouritesbar.svg
@@ -39,3 +42,4 @@ class Assets {
   /// assets/svgs/trending.svg
   static const String assetsSvgsTrending = "assets/svgs/trending.svg";
 }
+

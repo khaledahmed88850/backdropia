@@ -1,8 +1,10 @@
+import 'package:backdropia/core/services/service_locator.dart';
 import 'package:backdropia/core/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
+  setupGetIt();
   runApp(const BackDropia());
 }
 

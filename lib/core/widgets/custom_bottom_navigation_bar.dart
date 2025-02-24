@@ -62,8 +62,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   List<Widget> _buildScreens() {
     return [
-      HomeView(),
-      CategoryView(),
+      HomeView(controller: _controller),
+      CategoryView(controller: _controller),
       Center(child: Text('favorites')),
       Center(child: Text('settings')),
     ];
