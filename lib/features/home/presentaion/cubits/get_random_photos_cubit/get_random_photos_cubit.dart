@@ -14,7 +14,7 @@ class GetRandomPhotosCubit extends Cubit<GetRandomPhotosState> {
       getParamsModel: getParamsModel,
     );
     result.fold(
-      (l) => emit(GetRandomPhotosFailure('my error message')),
+      (l) => emit(GetRandomPhotosFailure(l.errMesage)),
       (r) => emit(GetRandomPhotosSuccess(r)),
     );
   }

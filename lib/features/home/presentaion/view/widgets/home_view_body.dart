@@ -1,3 +1,4 @@
+import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/features/home/presentaion/view/widgets/category_header.dart';
 
 import 'package:backdropia/features/home/presentaion/view/widgets/category_list_view_builder.dart';
@@ -12,7 +13,7 @@ import 'wallpaper_sliver_grid_builder.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key, required this.controller});
-final PersistentTabController controller;
+  final PersistentTabController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,12 +29,12 @@ final PersistentTabController controller;
                 SizedBox(
                   height: 200.h,
                   width: double.infinity,
-                  child: const RowWallpaperPageViewController()
+                  child: const RowWallpaperPageViewController(),
                 ),
 
-                 CategoryHeader(
+                CategoryHeader(
                   onTap: () {
-                      controller.index = 1;
+                    controller.index = 1;
                   },
                 ),
                 const SizedBox(height: 4),
@@ -44,7 +45,15 @@ final PersistentTabController controller;
               ],
             ),
           ),
-          const WallpapersSliverGridBuilder(),
+          HomeWallpapersSliverGridBuilder(
+            getParamsModel: GetParamsModel(
+              perPage: 80,
+              query: '',
+              page: 2,
+              orderBy: 'latest',
+              orientation: 'portrait',
+            ),
+          ),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
         ],
       ),

@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/pexels-tobiasbjorkli-1663376.jpg
   static const String assetsImagesPexelsTobiasbjorkli1663376 = "assets/images/pexels-tobiasbjorkli-1663376.jpg";
 
+  /// Assets for assetsSvgsBrush
+  /// assets/svgs/brush.svg
+  static const String assetsSvgsBrush = "assets/svgs/brush.svg";
+
   /// Assets for assetsSvgsCategoriesbar
   /// assets/svgs/categoriesbar.svg
   static const String assetsSvgsCategoriesbar = "assets/svgs/categoriesbar.svg";
@@ -37,6 +41,10 @@ class Assets {
   /// Assets for assetsSvgsSettingsbar
   /// assets/svgs/settingsbar.svg
   static const String assetsSvgsSettingsbar = "assets/svgs/settingsbar.svg";
+
+  /// Assets for assetsSvgsShare
+  /// assets/svgs/share.svg
+  static const String assetsSvgsShare = "assets/svgs/share.svg";
 
   /// Assets for assetsSvgsTrending
   /// assets/svgs/trending.svg

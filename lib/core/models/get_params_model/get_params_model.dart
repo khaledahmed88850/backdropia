@@ -1,12 +1,12 @@
 class GetParamsModel {
   int? page;
   int? perPage;
-  final String? query;
+  String? query;
   String? orderBy;
   String? orientation;
 
   GetParamsModel({
-    required this.query,
+    this.query,
     this.page = 1,
     this.perPage = 80,
     this.orderBy = 'latest',

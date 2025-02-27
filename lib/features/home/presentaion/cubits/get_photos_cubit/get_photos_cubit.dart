@@ -14,7 +14,20 @@ class GetPhotosCubit extends Cubit<GetPhotosState> {
     emit(GetPhotosLoading());
     final result = await homeRepo.getPhotos(getParamsModel: getParamsModel);
     result.fold(
-      (l) => emit(GetPhotosFailure('my error message')),
+      (l) => emit(GetPhotosFailure(l.errMesage)),
+      (r) => emit(GetPhotosSuccess(r)),
+    );
+  }
+
+  Future<void> getPhotosByCategory({
+    required GetParamsModel getParamsModel,
+  }) async {
+    emit(GetPhotosLoading());
+    final result = await homeRepo.getPhotosByCategory(
+      getParamsModel: getParamsModel,
+    );
+    result.fold(
+      (l) => emit(GetPhotosFailure(l.errMesage)),
       (r) => emit(GetPhotosSuccess(r)),
     );
   }

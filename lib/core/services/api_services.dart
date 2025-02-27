@@ -7,11 +7,11 @@ class ApiServices {
   ApiServices({required this.dio});
 
   Future<List<dynamic>> getRequest(String endPoint) async {
-    try {
-      final response = await dio.get(baseUrl + endPoint);
+    final response = await dio.get('$baseUrl$endPoint');
       return response.data;
-    } on DioException catch (e) {
-      throw Exception(e.message);
-    }
+  }
+  Future<Map<String, dynamic>> getRequestAsMap(String endPoint) async {
+    final response = await dio.get('$baseUrl$endPoint');
+      return response.data;
   }
 }

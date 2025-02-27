@@ -1,25 +1,29 @@
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/core/utils/dummy_wallpaper.dart';
 import 'package:backdropia/features/home/presentaion/cubits/get_photos_cubit/get_photos_cubit.dart';
+import 'package:backdropia/features/home/presentaion/view/widgets/wallpaper_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'wallpaper_item.dart';
 
-class HomeWallpapersSliverGridBuilder extends StatefulWidget {
-  const HomeWallpapersSliverGridBuilder({super.key, required this.getParamsModel,});
+class CategoryWallpapersSliverGridBuilder extends StatefulWidget {
+  const CategoryWallpapersSliverGridBuilder({
+    super.key,
+    required this.getParamsModel,
+  });
   final GetParamsModel getParamsModel;
   @override
-  State<HomeWallpapersSliverGridBuilder> createState() =>
-      _HomeWallpapersSliverGridBuilderState();
+  State<CategoryWallpapersSliverGridBuilder> createState() =>
+      _CategoryWallpapersSliverGridBuilderState();
 }
 
-class _HomeWallpapersSliverGridBuilderState
-    extends State<HomeWallpapersSliverGridBuilder> {
- 
+class _CategoryWallpapersSliverGridBuilderState
+    extends State<CategoryWallpapersSliverGridBuilder> {
   @override
   void initState() {
-    context.read<GetPhotosCubit>().getPhotos(getParamsModel: widget.getParamsModel);
+    context.read<GetPhotosCubit>().getPhotosByCategory(
+      getParamsModel: widget.getParamsModel,
+    );
 
     super.initState();
   }
@@ -31,8 +35,8 @@ class _HomeWallpapersSliverGridBuilderState
         if (state is GetPhotosSuccess) {
           return SliverGrid.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              childAspectRatio: 0.6,
+              crossAxisCount: 2,
+              childAspectRatio: .6,
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
             ),
@@ -46,7 +50,7 @@ class _HomeWallpapersSliverGridBuilderState
             enabled: true,
             child: SliverGrid.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
+                crossAxisCount: 2,
                 childAspectRatio: 0.6,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,

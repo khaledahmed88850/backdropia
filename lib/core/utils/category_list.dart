@@ -7,10 +7,16 @@ List<CategoryModel> getCategoryList() {
       imageUrl:
           'https://images.unsplash.com/photo-1740339095760-a077f60fcf54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHwxfHxhcnR8ZW58MHwxfDJ8fDE3NDA0MDk1NzB8MA&ixlib=rb-4.0.3&q=80&w=1080',
     ),
-    CategoryModel(
-      name: 'Beach',
+
+     CategoryModel(
+      name: 'Plant',
       imageUrl:
-          'https://images.unsplash.com/photo-1740228018442-542f7f61b6a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw2fHxiZWFjaHxlbnwwfDF8Mnx8MTc0MDQwOTY1Mnww&ixlib=rb-4.0.3&q=80&w=1080',
+          'https://images.unsplash.com/photo-1740282492401-8ec98d80754e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw0fHxwbGFudHxlbnwwfDB8Mnx8MTc0MDQxMTM2MXww&ixlib=rb-4.0.3&q=80&w=1080',
+    ),
+        CategoryModel(
+      name: 'Animal',
+      imageUrl:
+          'https://images.unsplash.com/photo-1740099602297-0b1469a20dc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw0fHxwbGFpbnxlbnwwfDB8Mnx8MTc0MDQxMTI1Mnww&ixlib=rb-4.0.3&q=80&w=1080',
     ),
     CategoryModel(
       name: 'Bike',
@@ -47,11 +53,7 @@ List<CategoryModel> getCategoryList() {
       imageUrl:
           'https://images.unsplash.com/photo-1740345985407-b117173052f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw2fHxuYXR1cmV8ZW58MHwwfDJ8fDE3NDA0MTEyMDl8MA&ixlib=rb-4.0.3&q=80&w=1080',
     ),
-    CategoryModel(
-      name: 'Animal',
-      imageUrl:
-          'https://images.unsplash.com/photo-1740099602297-0b1469a20dc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw0fHxwbGFpbnxlbnwwfDB8Mnx8MTc0MDQxMTI1Mnww&ixlib=rb-4.0.3&q=80&w=1080',
-    ),
+
     CategoryModel(
       name: 'Plane',
       imageUrl:
@@ -67,10 +69,10 @@ List<CategoryModel> getCategoryList() {
       imageUrl:
          'https://images.unsplash.com/photo-1739614621579-8f8f396c7412?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHwzMnx8c3BhY2V8ZW58MHwwfDJ8fDE3NDA0MTE4NDR8MA&ixlib=rb-4.0.3&q=80&w=1080'
     ),
-    CategoryModel(
-      name: 'Plant',
+       CategoryModel(
+      name: 'Beach',
       imageUrl:
-          'https://images.unsplash.com/photo-1740282492401-8ec98d80754e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw0fHxwbGFudHxlbnwwfDB8Mnx8MTc0MDQxMTM2MXww&ixlib=rb-4.0.3&q=80&w=1080',
+          'https://images.unsplash.com/photo-1740228018442-542f7f61b6a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MTE1NDh8MHwxfHNlYXJjaHw2fHxiZWFjaHxlbnwwfDF8Mnx8MTc0MDQwOTY1Mnww&ixlib=rb-4.0.3&q=80&w=1080',
     ),
     CategoryModel(
       name: 'Travel',

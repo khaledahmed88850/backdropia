@@ -1,4 +1,5 @@
 import 'package:backdropia/core/utils/app_styles.dart';
+import 'package:backdropia/features/wallpaper_category_presentation.dart/presentation/views/wallpaper_category_presentation_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -8,6 +9,16 @@ class SearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: (value) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return WallpaperCategoryPresentationView(tag: value);
+            },
+          ),
+        );
+      },
       decoration: InputDecoration(
         suffixIcon: Icon(Icons.search),
         suffixIconColor: Color(0xFF979797),
