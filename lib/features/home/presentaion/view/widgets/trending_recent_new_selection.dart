@@ -5,8 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TrendingRecentNewSelection extends StatefulWidget {
-  const TrendingRecentNewSelection({super.key, });
-
+  const TrendingRecentNewSelection({super.key, required this.onTap, });
+final ValueChanged<int> onTap;
   @override
   State<TrendingRecentNewSelection> createState() =>
       _TrendingRecentNewSelectionState();
@@ -42,6 +42,7 @@ class _TrendingRecentNewSelectionState
             image: images[index],
             onTap: () {
               setState(() {
+                widget.onTap(index);
                 this.index = index;
               });
             },

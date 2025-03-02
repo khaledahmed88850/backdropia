@@ -1,5 +1,5 @@
 import 'package:backdropia/constants.dart';
-import 'package:backdropia/core/models/wallpaper/wallpaper.dart';
+import 'package:backdropia/core/entities/wallpaper_entity.dart';
 import 'package:backdropia/core/utils/assets.dart';
 import 'package:backdropia/features/set_wallpaper/presentation/view/set_Wallpaper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -10,7 +10,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class WallpaperItem extends StatelessWidget {
   const WallpaperItem({super.key, required this.wallpaper});
-  final Wallpaper wallpaper;
+  final WallpaperEntity wallpaper;
   @override
   Widget build(BuildContext context) {
     return Stack(

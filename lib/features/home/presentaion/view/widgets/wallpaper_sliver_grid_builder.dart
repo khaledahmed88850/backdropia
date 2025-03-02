@@ -7,8 +7,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 import 'wallpaper_item.dart';
 
 class HomeWallpapersSliverGridBuilder extends StatefulWidget {
-  const HomeWallpapersSliverGridBuilder({super.key, required this.getParamsModel,});
-  final GetParamsModel getParamsModel;
+  const HomeWallpapersSliverGridBuilder({super.key});
   @override
   State<HomeWallpapersSliverGridBuilder> createState() =>
       _HomeWallpapersSliverGridBuilderState();
@@ -16,11 +15,16 @@ class HomeWallpapersSliverGridBuilder extends StatefulWidget {
 
 class _HomeWallpapersSliverGridBuilderState
     extends State<HomeWallpapersSliverGridBuilder> {
- 
   @override
   void initState() {
-    context.read<GetPhotosCubit>().getPhotos(getParamsModel: widget.getParamsModel);
-
+    context.read<GetPhotosCubit>().getPhotos(
+      getParamsModel: GetParamsModel(
+        perPage: 80,
+        query: '',
+        page: 1,
+        orientation: 'portrait',
+      ),
+    );
     super.initState();
   }
 

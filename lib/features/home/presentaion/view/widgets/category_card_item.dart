@@ -4,7 +4,6 @@ import 'package:backdropia/features/wallpaper_category_presentation.dart/present
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class CategoryCardItem extends StatelessWidget {
   const CategoryCardItem({super.key, required this.categoryModel});

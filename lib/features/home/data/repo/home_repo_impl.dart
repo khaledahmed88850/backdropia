@@ -1,4 +1,6 @@
+import 'package:backdropia/core/entities/wallpaper_entity.dart';
 import 'package:backdropia/core/error/failure.dart';
+import 'package:backdropia/core/mapper/mapping.dart';
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/core/models/wallpaper/wallpaper.dart';
 import 'package:backdropia/core/services/api_services.dart';
@@ -12,7 +14,7 @@ class HomeRepoImpl implements HomeRepo {
 
   HomeRepoImpl({required this.apiServices});
   @override
-  Future<Either<Failure, List<Wallpaper>>> getPhotos({
+  Future<Either<Failure, List<WallpaperEntity>>> getPhotos({
     required GetParamsModel getParamsModel,
   }) async {
     try {
@@ -21,7 +23,9 @@ class HomeRepoImpl implements HomeRepo {
       final response = await apiServices.getRequest(endPoint);
       List<Wallpaper> wallpapers =
           response.map<Wallpaper>((e) => Wallpaper.fromJson(e)).toList();
-      return Right(wallpapers);
+      List<WallpaperEntity> wallpapersEntity =
+          wallpapers.map((e) => toWallpaperEntity(e)).toList();
+      return Right(wallpapersEntity);
     } on Exception catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioException(e));
@@ -32,7 +36,7 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Wallpaper>>> getThreeRandomPhotos({
+  Future<Either<Failure, List<WallpaperEntity>>> getThreeRandomPhotos({
     required GetParamsModel getParamsModel,
   }) async {
     try {
@@ -41,7 +45,9 @@ class HomeRepoImpl implements HomeRepo {
       final response = await apiServices.getRequest(endPoint);
       List<Wallpaper> wallpapers =
           response.map<Wallpaper>((e) => Wallpaper.fromJson(e)).toList();
-      return Right(wallpapers);
+      List<WallpaperEntity> wallpapersEntity =
+          wallpapers.map((e) => toWallpaperEntity(e)).toList();
+      return Right(wallpapersEntity);
     } on Exception catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioException(e));
@@ -52,7 +58,7 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Wallpaper>>> getPhotosByCategory({
+  Future<Either<Failure, List<WallpaperEntity>>> getPhotosByCategory({
     required GetParamsModel getParamsModel,
   }) async {
     try {
@@ -63,7 +69,9 @@ class HomeRepoImpl implements HomeRepo {
           response['results']
               .map<Wallpaper>((e) => Wallpaper.fromJson(e))
               .toList();
-      return Right(wallpapers);
+      List<WallpaperEntity> wallpapersEntity =
+          wallpapers.map((e) => toWallpaperEntity(e)).toList();
+      return Right(wallpapersEntity);
     } on Exception catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioException(e));

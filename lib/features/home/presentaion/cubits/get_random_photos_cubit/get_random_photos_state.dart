@@ -1,4 +1,4 @@
-import 'package:backdropia/core/models/wallpaper/wallpaper.dart';
+import 'package:backdropia/core/entities/wallpaper_entity.dart';
 
 sealed class GetRandomPhotosState {}
 
@@ -12,6 +12,6 @@ final class GetRandomPhotosFailure extends GetRandomPhotosState {
 }
 
 final class GetRandomPhotosSuccess extends GetRandomPhotosState {
-  final List<Wallpaper> wallpapers;
+  final List<WallpaperEntity> wallpapers;
   GetRandomPhotosSuccess(this.wallpapers);
 }

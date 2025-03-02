@@ -92,7 +92,7 @@ class _RowWallpaperPageViewControllerState
   }
 
   void startRowWallpapersAnimation() {
-    // _timer = Timer.periodic(Duration(seconds: 15), (timer) {
+    // _timer = Timer.periodic(Duration(seconds: 6), (timer) {
     //   pageController.jumpToPage(currentIndex == 2 ? 0 : currentIndex + 1);
     // });
   }

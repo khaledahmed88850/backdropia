@@ -1,7 +1,7 @@
-import 'package:backdropia/core/models/wallpaper/urls.dart';
-import 'package:backdropia/core/models/wallpaper/wallpaper.dart';
+import 'package:backdropia/core/entities/urls_entity.dart';
+import 'package:backdropia/core/entities/wallpaper_entity.dart';
 
-List<Wallpaper> getDummyWallpaper() {
+List<WallpaperEntity> getDummyWallpaper() {
   return [
     dummyWallpaper,
     dummyWallpaper,
@@ -14,12 +14,9 @@ List<Wallpaper> getDummyWallpaper() {
     dummyWallpaper,
   ];
 }
-Wallpaper dummyWallpaper = Wallpaper(
-    id: '1',
-    createdAt: '2023-07-12',
-    updatedAt: '2023-07-12',
-    promotedAt: '2023-07-12',
-    urls: Urls(
+WallpaperEntity dummyWallpaper = WallpaperEntity(
+ 
+    urls: UrlsEntity(
       raw:
           'https://images.unsplash.com/photo-1682685794036-3c1e5b1c5c7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
       full:

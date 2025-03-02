@@ -34,6 +34,18 @@ class Assets {
   /// assets/svgs/notification.svg
   static const String assetsSvgsNotification = "assets/svgs/notification.svg";
 
+  /// Assets for assetsSvgsPhoneBothScreens
+  /// assets/svgs/phone_both_screens.svg
+  static const String assetsSvgsPhoneBothScreens = "assets/svgs/phone_both_screens.svg";
+
+  /// Assets for assetsSvgsPhoneHomeScreen
+  /// assets/svgs/phone_home_screen.svg
+  static const String assetsSvgsPhoneHomeScreen = "assets/svgs/phone_home_screen.svg";
+
+  /// Assets for assetsSvgsPhoneLockScreen
+  /// assets/svgs/phone_lock_screen.svg
+  static const String assetsSvgsPhoneLockScreen = "assets/svgs/phone_lock_screen.svg";
+
   /// Assets for assetsSvgsRecent
   /// assets/svgs/recent.svg
   static const String assetsSvgsRecent = "assets/svgs/recent.svg";

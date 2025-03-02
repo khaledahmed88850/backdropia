@@ -10,6 +10,6 @@ final class GetPhotosFailure extends GetPhotosState {
   GetPhotosFailure(this.errorMessage);
 }
 final class GetPhotosSuccess extends GetPhotosState {
-  final List<Wallpaper> wallpapers;
+  final List<WallpaperEntity> wallpapers;
   GetPhotosSuccess(this.wallpapers);
 }
