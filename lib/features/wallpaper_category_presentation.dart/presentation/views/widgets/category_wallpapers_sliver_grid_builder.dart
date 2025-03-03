@@ -42,7 +42,7 @@ class _CategoryWallpapersSliverGridBuilderState
             ),
             itemCount: state.wallpapers.length,
             itemBuilder: (context, index) {
-              return WallpaperItem(wallpaper: state.wallpapers[index]);
+              return WallpaperItem(wallpaper: state.wallpapers[index],);
             },
           );
         } else if (state is GetPhotosLoading) {
@@ -57,7 +57,7 @@ class _CategoryWallpapersSliverGridBuilderState
               ),
               itemCount: getDummyWallpaper().length,
               itemBuilder: (context, index) {
-                return WallpaperItem(wallpaper: getDummyWallpaper()[index]);
+                return WallpaperItem(wallpaper: getDummyWallpaper()[index] ,);
               },
             ),
           );

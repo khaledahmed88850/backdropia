@@ -14,4 +14,5 @@ UrlsEntity toUrlsEntity(Urls urls) => UrlsEntity(
 
 WallpaperEntity toWallpaperEntity(Wallpaper wallpaper) => WallpaperEntity(
   urls: toUrlsEntity(wallpaper.urls!),
+  id: wallpaper.id,
 );

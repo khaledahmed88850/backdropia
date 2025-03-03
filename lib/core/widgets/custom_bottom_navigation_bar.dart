@@ -1,6 +1,7 @@
 import 'package:backdropia/core/utils/app_styles.dart';
 import 'package:backdropia/core/utils/assets.dart';
 import 'package:backdropia/features/category/presentation/view/category_view.dart';
+import 'package:backdropia/features/favourites/presentation/view/favourites_view.dart';
 import 'package:backdropia/features/home/presentaion/view/home_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return [
       HomeView(controller: _controller),
       CategoryView(controller: _controller),
-      Center(child: Text('favorites')),
+     FavouritesView(),
       Center(child: Text('settings')),
     ];
   }

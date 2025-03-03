@@ -5,7 +5,7 @@ import 'topic_submissions.dart';
 import 'urls.dart';
 
 class Wallpaper {
-  String? id;
+  String id;
   String? slug;
   String? createdAt;
   String? updatedAt;
@@ -32,7 +32,7 @@ class Wallpaper {
   int? downloads;
 
   Wallpaper({
-    this.id,
+   required this.id,
     this.slug,
     this.createdAt,
     this.updatedAt,
@@ -59,7 +59,7 @@ class Wallpaper {
   });
 
   factory Wallpaper.fromJson(Map<String, dynamic> json) => Wallpaper(
-    id: json['id'] as String?,
+    id: json['id'] as String,
     slug: json['slug'] as String?,
    
     createdAt: json['created_at'] as String?,
