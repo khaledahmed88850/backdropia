@@ -1,11 +1,13 @@
 import 'package:backdropia/constants.dart';
 import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/helpers/favourites_feature_functions.dart';
 import 'package:backdropia/core/utils/assets.dart';
 import 'package:backdropia/features/set_wallpaper/presentation/view/set_Wallpaper.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class WallpaperItem extends StatelessWidget {
@@ -17,13 +19,15 @@ class WallpaperItem extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-           PersistentNavBarNavigator.pushNewScreen(
-        context,
-        screen: SetWallpaper(imageUrl: wallpaper.urls!.small!,
-        imageUrlRaw: wallpaper.urls!.full!,),
-        withNavBar: false, 
-        pageTransitionAnimation: PageTransitionAnimation.fade,
-    );
+            PersistentNavBarNavigator.pushNewScreen(
+              context,
+              screen: SetWallpaper(
+                imageUrl: wallpaper.urls.small!,
+                imageUrlRaw: wallpaper.urls.full!,
+              ),
+              withNavBar: false,
+              pageTransitionAnimation: PageTransitionAnimation.fade,
+            );
           },
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.5,
@@ -36,7 +40,7 @@ class WallpaperItem extends StatelessWidget {
                     return Container(color: Colors.grey.shade300);
                   },
                   errorWidget: (context, url, error) => const Icon(Icons.error),
-                  imageUrl: wallpaper.urls!.regular ?? testImagePortrait,
+                  imageUrl: wallpaper.urls.regular ?? testImagePortrait,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -46,14 +50,31 @@ class WallpaperItem extends StatelessWidget {
         Positioned(
           left: 5.w,
           bottom: 5.h,
-          child: CircleAvatar(
-            backgroundColor: Colors.black45,
-            radius: 12.r,
-            child: Center(
-              child: SvgPicture.asset(
-                Assets.assetsSvgsFavouriteIcon,
-                height: 15.h,
-                width: 15.w,
+          child: GestureDetector(
+            onTap: () => toggleFavorite(wallpaper),
+            child: CircleAvatar(
+              backgroundColor: Colors.black45,
+              radius: 12.r,
+              child: ValueListenableBuilder(
+                valueListenable:
+                    Hive.box<WallpaperEntity>(kFavoritesBox).listenable(),
+                builder: (context, Box<WallpaperEntity> box, _) {
+                  bool isFav = box.containsKey(wallpaper.id);
+
+                  return SizedBox(
+                    height: 17.h,
+                    width: 17.w,
+                    child: SvgPicture.asset(
+                      isFav
+                          ? Assets.assetsSvgsFavouritesbar
+                          : Assets.assetsSvgsFavouriteIcon,
+                      colorFilter:
+                          isFav
+                              ? ColorFilter.mode(Colors.red, BlendMode.srcIn)
+                              : ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                    ),
+                  );
+                },
               ),
             ),
           ),

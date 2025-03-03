@@ -13,18 +13,16 @@ class HomeView extends StatelessWidget {
   final PersistentTabController controller;
   @override
   Widget build(BuildContext context) {
-    return 
-    MultiBlocProvider(
+    return MultiBlocProvider(
       providers: [
-         BlocProvider(
-      create: (context) => GetPhotosCubit(getIt<HomeRepo>()),
-        ),
+        BlocProvider(create: (context) => GetPhotosCubit(getIt<HomeRepo>())),
         BlocProvider(
           create: (context) => GetRandomPhotosCubit(getIt<HomeRepo>()),
         ),
       ],
-      child: SafeArea(child: HomeViewBody(controller: controller,)),
+      child: Scaffold(
+        body: SafeArea(child: HomeViewBody(controller: controller)),
+      ),
     );
-   
   }
 }
