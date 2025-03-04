@@ -8,12 +8,10 @@ import '../../../../../core/utils/assets.dart';
 class SetWallpaperBottomSheet extends StatelessWidget {
   const SetWallpaperBottomSheet({
     super.key,
-    required this.image,
     this.onTapHome,
     this.onTapLock,
     this.onTapBoth,
   });
-  final String image;
   final VoidCallback? onTapHome;
   final VoidCallback? onTapLock;
   final VoidCallback? onTapBoth;

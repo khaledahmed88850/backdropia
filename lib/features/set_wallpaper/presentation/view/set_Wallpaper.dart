@@ -100,7 +100,6 @@ class _SetWallpaperState extends State<SetWallpaper> {
                                         context: context,
                                         screen: 'home',
                                       ),
-                                  image: widget.wallpaperEntity.urls.regular!,
                                 );
                               },
                             );
