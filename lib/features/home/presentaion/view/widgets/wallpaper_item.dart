@@ -21,10 +21,7 @@ class WallpaperItem extends StatelessWidget {
           onTap: () {
             PersistentNavBarNavigator.pushNewScreen(
               context,
-              screen: SetWallpaper(
-                imageUrl: wallpaper.urls.small!,
-                imageUrlRaw: wallpaper.urls.full!,
-              ),
+              screen: SetWallpaper(wallpaperEntity: wallpaper),
               withNavBar: false,
               pageTransitionAnimation: PageTransitionAnimation.fade,
             );

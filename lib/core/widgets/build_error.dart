@@ -8,7 +8,6 @@ void buildError(BuildContext context, String message,
       topLeft: Radius.circular(8),
       topRight: Radius.circular(8),
     )),
-    duration: const Duration(milliseconds: 400),
     content: Text(message),
     backgroundColor: color,
   ));

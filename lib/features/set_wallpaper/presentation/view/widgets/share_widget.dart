@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ShareWidget extends StatelessWidget {
-  const ShareWidget({
+class ShareAndSetWidget extends StatelessWidget {
+  const ShareAndSetWidget({
     super.key,
     required this.image,
     required this.title,

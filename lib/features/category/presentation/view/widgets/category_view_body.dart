@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
-
 class CategoryViewBody extends StatelessWidget {
   const CategoryViewBody({super.key, required this.controller});
   final PersistentTabController controller;
@@ -15,9 +14,11 @@ class CategoryViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
-            child: buildAppBar(context: context, title: 'Category' ,
+            child: buildAppBar(
+              context: context,
+              title: 'Category',
               onPressed: () {
-                   controller.index = 0;
+                controller.index = 0;
               },
             ),
           ),
