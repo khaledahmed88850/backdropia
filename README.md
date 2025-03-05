@@ -1,8 +1,6 @@
 # Backdropia - Wallpaper App
 
-
-
-Backdropia is a beautifully designed mobile application that offers a vast collection of high-quality wallpapers for your device. Whether you're looking for stunning landscapes, abstract designs, or minimalist patterns, Backdropia has something for everyone. 
+Backdropia is a beautifully designed mobile application that offers a vast collection of high-quality wallpapers for your device. Whether you're looking for stunning landscapes, abstract designs, or minimalist patterns, Backdropia has something for everyone.
 
 ## Features
 
@@ -13,20 +11,18 @@ Backdropia is a beautifully designed mobile application that offers a vast colle
 - **Offline Access**: Download wallpapers and use them offline.
 - **Lightweight**: Optimized for performance with minimal battery and data usage.
 
+
+
 ## Screenshots
-![Screenshot_1741201075](https://github.com/user-attachments/assets/47bd8bc6-34fd-4102-9fbd-3c89049d4663) | ![Screenshot_1741201082](https://github.com/user-attachments/assets/e5cd5a8a-7c62-4292-93d5-78314673a406) | ![Screenshot_1741200427](https://github.com/user-attachments/assets/fb56ae8d-875b-434c-b326-7f15f09bf332) | ![Screenshot_1741200769](https://github.com/user-attachments/assets/572b9ac9-d389-447e-ae38-9fbc863e3f21)
 
-
-
-
-:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
-*Home Screen*  | *Home Screen Dark Mode*  |  *Categories*  |  *Wallpaper Preview*
-
+![Screenshot_1741201075](https://github.com/user-attachments/assets/757d085a-559a-4c84-96b8-ccf07462b596) | ![Screenshot_1741201082](https://github.com/user-attachments/assets/c5f01d36-4d16-414f-b29d-b6a68e68d5e5) | ![Screenshot_1741200427](https://github.com/user-attachments/assets/4fa4ec70-09ed-4529-9d2a-27d6896d5010) | ![Screenshot_1741201858](https://github.com/user-attachments/assets/3c132a37-650b-434b-8df1-d40b7565c483) | ![Screenshot_1741200769](https://github.com/user-attachments/assets/5eceb7d6-bf1a-48ac-aa70-ed38373e9437)
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+*Home Screen* | *Home Screen Dark Mode* | *Categories* | *Favourites* | *Wallpaper Preview*
 
 ## Technologies Used
 
 - **Frontend**: Flutter (Dart)
-- **State Management**: Provider , Cubit
+- **State Management**: Provider, Cubit
 - **API Integration**: RESTful APIs for wallpaper data
 
 ## Contributing
@@ -40,8 +36,6 @@ We welcome contributions from the community! If you'd like to contribute to Back
 5. Open a pull request.
 
 Please ensure your code follows our coding standards and includes appropriate documentation.
-
-
 
 ## Acknowledgments
 
