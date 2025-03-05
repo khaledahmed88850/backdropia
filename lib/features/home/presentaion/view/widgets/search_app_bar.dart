@@ -1,9 +1,8 @@
-import 'package:backdropia/core/utils/assets.dart';
-import 'package:backdropia/features/home/presentaion/view/widgets/search_text_field.dart'
-    show SearchTextField;
+import 'package:backdropia/core/theme_provider/theme_provider.dart';
+import 'package:backdropia/features/home/presentaion/view/widgets/search_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class SearchAppBar extends StatelessWidget {
   const SearchAppBar({super.key});
@@ -14,9 +13,14 @@ class SearchAppBar extends StatelessWidget {
       children: [
         SizedBox(height: 40.h, width: 300.w, child: SearchTextField()),
         Spacer(),
-        SizedBox(
-          width: 30.w,
-          child: SvgPicture.asset(Assets.assetsSvgsNotification),
+        GestureDetector(
+          onTap: () {
+            Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+          },
+          child: SizedBox(
+            width: 30.w,
+            child: Icon(Icons.brightness_6_outlined),
+          ),
         ),
       ],
     );

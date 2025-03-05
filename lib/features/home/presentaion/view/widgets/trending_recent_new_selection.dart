@@ -1,5 +1,6 @@
 import 'package:backdropia/core/utils/assets.dart';
 import 'package:backdropia/features/home/presentaion/view/widgets/trending_recent_new_item.dart';
+import 'package:flutter/material.dart';
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +29,7 @@ class _TrendingRecentNewSelectionState
       width: double.infinity,
       height: 60.h,
       decoration: ShapeDecoration(
-        color: Color(0xffE1F4FF),
+        color: Theme.of(context).colorScheme.secondary,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(32.r),
         ),

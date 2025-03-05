@@ -1,3 +1,4 @@
+
 import 'package:backdropia/core/entities/wallpaper_entity.dart';
 import 'package:backdropia/core/helpers/favourites_feature_functions.dart';
 import 'package:backdropia/core/helpers/set_wallpaper_functions.dart';
@@ -23,7 +24,6 @@ class SetWallpaper extends StatefulWidget {
 
 class _SetWallpaperState extends State<SetWallpaper> {
   bool isloading = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -141,15 +141,13 @@ class _SetWallpaperState extends State<SetWallpaper> {
     setState(() {
       isloading = true;
     });
-    await setWallpaperFunction(
-      image: widget.wallpaperEntity.urls.regular!,
-      screen: screen,
-    );
+
+    await setWallpaperFunction(image: widget.wallpaperEntity.urls.regular!, screen: screen);
     setState(() {
       isloading = false;
     });
     Navigator.pop(context);
 
-    buildError(context, 'Wallpaper Set' , color: Colors.green);
+    buildError(context, 'Wallpaper Set', color: Colors.green);
   }
 }

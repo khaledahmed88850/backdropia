@@ -38,7 +38,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       stateManagement: true, // Default is true.
       hideNavigationBarWhenKeyboardAppears: true,
 
-      backgroundColor: Color(0xffF9F9F9),
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor!,
       isVisible: true,
       animationSettings: const NavBarAnimationSettings(
         navBarItemAnimation: ItemAnimationSettings(
@@ -65,21 +65,29 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return [
       HomeView(controller: _controller),
       CategoryView(controller: _controller),
-     FavouritesView(),
-      Center(child: Text('settings')),
+      FavouritesView(controller: _controller,),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        inactiveIcon: SvgPicture.asset(Assets.assetsSvgsHomebar),
+        inactiveIcon: SvgPicture.asset(
+          Assets.assetsSvgsHomebar,
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).appBarTheme.iconTheme!.color!,
+            BlendMode.srcIn,
+          ),
+        ),
         icon: SvgPicture.asset(
           Assets.assetsSvgsHomebar,
-          colorFilter: ColorFilter.mode(Color(0xFF292D32), BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).appBarTheme.actionsIconTheme!.color!,
+            BlendMode.srcIn,
+          ),
         ),
         title: ("Home"),
-        activeColorPrimary: Color(0xFF292D32),
+        activeColorPrimary: Theme.of(context).appBarTheme.titleTextStyle!.color!,
         textStyle: Styles.normal13.copyWith(color: Color(0xFF292D32)),
         routeAndNavigatorSettings: RouteAndNavigatorSettings(
           initialRoute: "/",
@@ -87,19 +95,27 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             "/first": (final context) => _buildScreens()[0],
             "/second": (final context) => _buildScreens()[1],
             "/third": (final context) => _buildScreens()[2],
-            "/fourth": (final context) => _buildScreens()[3],
           },
         ),
       ),
       PersistentBottomNavBarItem(
-        inactiveIcon: SvgPicture.asset(Assets.assetsSvgsCategoriesbar),
+        inactiveIcon: SvgPicture.asset(
+          Assets.assetsSvgsCategoriesbar,
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).appBarTheme.iconTheme!.color!,
+            BlendMode.srcIn,
+          ),
+        ),
         icon: SvgPicture.asset(
           Assets.assetsSvgsCategoriesbar,
-          colorFilter: ColorFilter.mode(Color(0xFF292D32), BlendMode.srcIn),
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).appBarTheme.actionsIconTheme!.color!,
+            BlendMode.srcIn,
+          ),
         ),
         title: ("Category"),
         textStyle: Styles.normal13.copyWith(color: Color(0xFF292D32)),
-        activeColorPrimary: Color(0xFF292D32),
+        activeColorPrimary: Theme.of(context).appBarTheme.titleTextStyle!.color!,
         inactiveColorPrimary: CupertinoColors.systemGrey,
         routeAndNavigatorSettings: RouteAndNavigatorSettings(
           initialRoute: "/",
@@ -107,19 +123,27 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             "/first": (final context) => _buildScreens()[0],
             "/second": (final context) => _buildScreens()[1],
             "/third": (final context) => _buildScreens()[2],
-            "/fourth": (final context) => _buildScreens()[3],
           },
         ),
       ),
       PersistentBottomNavBarItem(
-        inactiveIcon: SvgPicture.asset(Assets.assetsSvgsFavouritesbar),
+        inactiveIcon: SvgPicture.asset(
+          Assets.assetsSvgsFavouritesbar,
+          colorFilter: ColorFilter.mode(
+            Theme.of(context).appBarTheme.iconTheme!.color!,
+            BlendMode.srcIn,
+          ),
+        ),
         icon: SvgPicture.asset(
           Assets.assetsSvgsFavouritesbar,
-          colorFilter: ColorFilter.mode(Color(0xFF292D32), BlendMode.srcIn),
+      colorFilter: ColorFilter.mode(
+            Theme.of(context).appBarTheme.actionsIconTheme!.color!,
+            BlendMode.srcIn,
+          ),
         ),
-        title: ("Favourites"),
+        title: ("Favourite"),
         textStyle: Styles.normal13.copyWith(color: Color(0xFF292D32)),
-        activeColorPrimary: Color(0xFF292D32),
+        activeColorPrimary: Theme.of(context).appBarTheme.titleTextStyle!.color!,
         inactiveColorPrimary: CupertinoColors.systemGrey,
         routeAndNavigatorSettings: RouteAndNavigatorSettings(
           initialRoute: "/",
@@ -127,27 +151,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             "/first": (final context) => _buildScreens()[0],
             "/second": (final context) => _buildScreens()[1],
             "/third": (final context) => _buildScreens()[2],
-            "/fourth": (final context) => _buildScreens()[3],
-          },
-        ),
-      ),
-      PersistentBottomNavBarItem(
-        inactiveIcon: SvgPicture.asset(Assets.assetsSvgsSettingsbar),
-        icon: SvgPicture.asset(
-          Assets.assetsSvgsSettingsbar,
-          colorFilter: ColorFilter.mode(Color(0xFF292D32), BlendMode.srcIn),
-        ),
-        title: ("Settings"),
-        textStyle: Styles.normal13.copyWith(color: Color(0xFF292D32)),
-        activeColorPrimary: Color(0xFF292D32),
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-        routeAndNavigatorSettings: RouteAndNavigatorSettings(
-          initialRoute: "/",
-          routes: {
-            "/first": (final context) => _buildScreens()[0],
-            "/second": (final context) => _buildScreens()[1],
-            "/third": (final context) => _buildScreens()[2],
-            "/fourth": (final context) => _buildScreens()[3],
           },
         ),
       ),

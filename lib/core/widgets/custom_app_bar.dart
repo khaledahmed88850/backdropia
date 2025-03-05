@@ -11,7 +11,10 @@ AppBar buildAppBar({
     elevation: 0,
     centerTitle: true,
     leading: IconButton(
-      icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+      icon: Icon(
+        Icons.arrow_back_ios,
+        color: Theme.of(context).colorScheme.primary,
+      ),
       onPressed: onPressed,
     ),
     title: Text(title, style: Styles.semiBold25),

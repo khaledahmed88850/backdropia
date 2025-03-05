@@ -6,14 +6,19 @@ import 'package:backdropia/features/home/presentaion/view/widgets/wallpaper_item
 
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class FavouritesView extends StatelessWidget {
-  const FavouritesView({super.key});
+  const FavouritesView({super.key, required this.controller});
+  final PersistentTabController controller;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context: context, title: 'Favourites'),
+      appBar: buildAppBar(context: context, title: 'Favourites' 
+       , onPressed: () {
+         controller.index = 0;
+       },),
       body: ValueListenableBuilder(
         valueListenable: Hive.box<WallpaperEntity>(kFavoritesBox).listenable(),
         builder: (context, Box<WallpaperEntity> box, _) {
@@ -35,8 +40,8 @@ class FavouritesView extends StatelessWidget {
               itemCount: favorites.length,
               itemBuilder: (context, index) {
                 final wallpaper = favorites[index];
-                   
-                return  WallpaperItem(wallpaper: wallpaper);
+
+                return WallpaperItem(wallpaper: wallpaper);
               },
             ),
           );

@@ -54,8 +54,13 @@ class _RowWallpaperPageViewControllerState
                 ),
               );
             } else if (state is GetRandomPhotosFailure) {
-              return Row(
-                children: [Icon(Icons.error), Text(state.errorMessage)],
+              return Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Icon(Icons.error),
+                  SizedBox(width: 8,),
+                   Text(state.errorMessage)],
+                ),
               );
             } else {
               return Expanded(

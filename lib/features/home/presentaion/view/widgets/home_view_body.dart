@@ -35,6 +35,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               children: [
                 const SizedBox(height: 8),
                 const SearchAppBar(),
+                const SizedBox(height: 8),
                 SizedBox(
                   height: 200.h,
                   width: double.infinity,
