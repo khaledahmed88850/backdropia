@@ -57,14 +57,14 @@ class _HomeWallpapersSliverGridBuilderState
               ),
               itemCount: getDummyWallpaper().length,
               itemBuilder: (context, index) {
-                return WallpaperItem(wallpaper: getDummyWallpaper()[index]);
+                return  WallpaperItem(wallpaper: getDummyWallpaper()[index]);
               },
             ),
           );
         } else {
           return SliverToBoxAdapter(
-            child: Center(
-              child: const CircularProgressIndicator(color: Colors.black),
+            child:const Center(
+              child:  CircularProgressIndicator(color: Colors.black),
             ),
           );
         }

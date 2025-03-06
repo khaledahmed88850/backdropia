@@ -8,15 +8,15 @@ class CategorySliverGridBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverGrid.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    return  SliverGrid.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 12,
         mainAxisSpacing: 16,
         childAspectRatio: 6 / 5,
       ),
 
-      itemCount: getCategoryList().length,
+      itemCount:  getCategoryList().length,
       itemBuilder: (context, index) {
         return  CategoryCardItem(
           categoryModel: getCategoryList()[index],

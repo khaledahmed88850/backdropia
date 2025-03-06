@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/core/utils/dummy_wallpaper.dart';
@@ -8,7 +7,6 @@ import 'package:backdropia/features/home/presentaion/view/widgets/row_wallpaper_
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class RowWallpaperPageViewController extends StatefulWidget {
@@ -23,7 +21,6 @@ class _RowWallpaperPageViewControllerState
     extends State<RowWallpaperPageViewController> {
   int currentIndex = 0;
   late PageController pageController;
-  Timer? _timer;
   @override
   void initState() {
     context.read<GetRandomPhotosCubit>().getRandomPhotos(
@@ -40,13 +37,12 @@ class _RowWallpaperPageViewControllerState
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return  Column(
       children: [
         BlocBuilder<GetRandomPhotosCubit, GetRandomPhotosState>(
           builder: (context, state) {
             if (state is GetRandomPhotosSuccess) {
-              startRowWallpapersAnimation();
-              return Expanded(
+              return  Expanded(
                 child: RowWallpaperPageView(
                   wallpapers: state.wallpapers,
                   pageController: pageController,
@@ -54,11 +50,11 @@ class _RowWallpaperPageViewControllerState
                 ),
               );
             } else if (state is GetRandomPhotosFailure) {
-              return Expanded(
+              return  Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Icon(Icons.error),
-                  SizedBox(width: 8,),
+                  mainAxisAlignment:  MainAxisAlignment.center,
+                  children: [ const Icon(Icons.error),
+                 const SizedBox(width: 8,),
                    Text(state.errorMessage)],
                 ),
               );
@@ -75,7 +71,7 @@ class _RowWallpaperPageViewControllerState
             }
           },
         ),
-        SizedBox(height: 5.h),
+     const   SizedBox(height: 5),
         DotsIndicator(
           animationDuration: Duration(milliseconds: 500),
 
@@ -83,8 +79,8 @@ class _RowWallpaperPageViewControllerState
           dotsCount: 3,
           position: currentIndex.toDouble(),
           decorator: DotsDecorator(
-            activeColor: Color(0xFF888888),
-            color: Color(0xFFC3C2C2),
+            activeColor: const Color(0xFF888888),
+            color: const Color(0xFFC3C2C2),
             size: const Size.square(9),
             activeSize: const Size(22, 8),
             activeShape: RoundedRectangleBorder(
@@ -96,15 +92,5 @@ class _RowWallpaperPageViewControllerState
     );
   }
 
-  void startRowWallpapersAnimation() {
-    // _timer = Timer.periodic(Duration(seconds: 6), (timer) {
-    //   pageController.jumpToPage(currentIndex == 2 ? 0 : currentIndex + 1);
-    // });
-  }
 
-  @override
-  void dispose() {
-    // _timer?.cancel();
-    super.dispose();
-  }
 }

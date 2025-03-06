@@ -1,4 +1,4 @@
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/features/home/domain/repo/home_repo.dart';
 import 'package:bloc/bloc.dart';

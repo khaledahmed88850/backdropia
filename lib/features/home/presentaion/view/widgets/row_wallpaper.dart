@@ -9,13 +9,13 @@ class RowWallpaper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Animate(
+    return  Animate(
       effects: [
         FadeEffect(curve: Curves.easeIn, duration: Duration(milliseconds: 600)),
       ],
-      child: ClipRRect(
+      child:  ClipRRect(
         borderRadius: BorderRadius.circular(10.r),
-        child: CachedNetworkImage(
+        child:  CachedNetworkImage(
           placeholder: (context, url) {
             return Container(color: Colors.grey.shade300);
           },

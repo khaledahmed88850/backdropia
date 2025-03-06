@@ -12,7 +12,7 @@ class SearchAppBar extends StatelessWidget {
     return Row(
       children: [
         SizedBox(height: 40.h, width: 300.w, child: SearchTextField()),
-        Spacer(),
+       const Spacer(),
         GestureDetector(
           onTap: () {
             Provider.of<ThemeProvider>(context, listen: false).toggleTheme();

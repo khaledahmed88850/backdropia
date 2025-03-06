@@ -1,7 +1,7 @@
 import 'package:backdropia/features/category/data/models/category_model.dart';
 
 List<CategoryModel> getCategoryList() {
-  List<CategoryModel> categoryList = [
+  const  List<CategoryModel> categoryList =  [
     CategoryModel(
       name: 'Art',
       imageUrl:

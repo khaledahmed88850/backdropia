@@ -1,5 +1,5 @@
 import 'package:backdropia/core/entities/urls_entity.dart';
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/models/wallpaper/urls.dart';
 import 'package:backdropia/core/models/wallpaper/wallpaper.dart';
 
@@ -13,6 +13,6 @@ UrlsEntity toUrlsEntity(Urls urls) => UrlsEntity(
 );
 
 WallpaperEntity toWallpaperEntity(Wallpaper wallpaper) => WallpaperEntity(
-  urls: toUrlsEntity(wallpaper.urls!),
+  imageUrl: wallpaper.urls!.regular!,
   id: wallpaper.id,
 );

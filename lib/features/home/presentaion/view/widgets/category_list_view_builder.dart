@@ -8,11 +8,12 @@ class CategoryListViewBuilder extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
+    return  ListView.builder(
+      scrollDirection:  Axis.horizontal,
       itemCount: 6,
       itemBuilder: (context, index) {
-        return Padding(
+        return 
+         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6),
           child: CategoryCardItem( categoryModel: getCategoryList()[index],),
         );

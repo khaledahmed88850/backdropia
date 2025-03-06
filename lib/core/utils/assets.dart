@@ -14,6 +14,10 @@ class Assets {
   /// assets/svgs/categoriesbar.svg
   static const String assetsSvgsCategoriesbar = "assets/svgs/categoriesbar.svg";
 
+  /// Assets for assetsSvgsDownload
+  /// assets/svgs/download.svg
+  static const String assetsSvgsDownload = "assets/svgs/download.svg";
+
   /// Assets for assetsSvgsFavouriteIcon
   /// assets/svgs/favourite_icon.svg
   static const String assetsSvgsFavouriteIcon = "assets/svgs/favourite_icon.svg";

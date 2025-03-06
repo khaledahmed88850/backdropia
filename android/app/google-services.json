@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "208362735590",
+    "project_id": "backdropia-539f2",
+    "storage_bucket": "backdropia-539f2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208362735590:android:36eb241288869d31e43827",
+        "android_client_info": {
+          "package_name": "com.example.backdropia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4y1ifjBddOr6U6Q-qoOpYThOBVsvB1cQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import 'package:backdropia/constants.dart';
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/helpers/favourites_feature_functions.dart';
 import 'package:backdropia/core/utils/assets.dart';
 import 'package:backdropia/features/set_wallpaper/presentation/view/set_Wallpaper.dart';
@@ -34,10 +34,10 @@ class WallpaperItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12.r),
                 child: CachedNetworkImage(
                   placeholder: (context, url) {
-                    return Container(color: Colors.grey.shade300);
+                    return const ColoredBox(color: Color(0xFF9E9E9E));
                   },
                   errorWidget: (context, url, error) => const Icon(Icons.error),
-                  imageUrl: wallpaper.urls.regular ?? testImagePortrait,
+                  imageUrl: wallpaper.imageUrl,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -67,8 +67,14 @@ class WallpaperItem extends StatelessWidget {
                           : Assets.assetsSvgsFavouriteIcon,
                       colorFilter:
                           isFav
-                              ? ColorFilter.mode(Colors.red, BlendMode.srcIn)
-                              : ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                              ? const ColorFilter.mode(
+                                Colors.red,
+                                BlendMode.srcIn,
+                              )
+                              : const ColorFilter.mode(
+                                Colors.white,
+                                BlendMode.srcIn,
+                              ),
                     ),
                   );
                 },

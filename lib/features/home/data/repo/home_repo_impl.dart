@@ -1,4 +1,5 @@
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
+import 'package:backdropia/core/error/exceptions.dart';
 import 'package:backdropia/core/error/failure.dart';
 import 'package:backdropia/core/mapper/mapping.dart';
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
@@ -28,7 +29,11 @@ class HomeRepoImpl implements HomeRepo {
       return Right(wallpapersEntity);
     } on Exception catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
+        return Left(
+          ServerFailure.fromResponse(e.response!.statusCode, e.response),
+        );
+      } else if (e is Customexception) {
+        return left(ServerFailure(errMesage: e.message));
       } else {
         return left(ServerFailure(errMesage: e.toString()));
       }
@@ -50,7 +55,11 @@ class HomeRepoImpl implements HomeRepo {
       return Right(wallpapersEntity);
     } on Exception catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
+        return Left(
+          ServerFailure.fromResponse(e.response!.statusCode, e.response),
+        );
+      } else if (e is Customexception) {
+        return left(ServerFailure(errMesage: e.message));
       } else {
         return left(ServerFailure(errMesage: e.toString()));
       }
@@ -74,7 +83,11 @@ class HomeRepoImpl implements HomeRepo {
       return Right(wallpapersEntity);
     } on Exception catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure.fromDioException(e));
+        return Left(
+          ServerFailure.fromResponse(e.response!.statusCode, e.response),
+        );
+      } else if (e is Customexception) {
+        return left(ServerFailure(errMesage: e.message));
       } else {
         return left(ServerFailure(errMesage: e.toString()));
       }

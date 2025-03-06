@@ -42,7 +42,7 @@ class _CategoryWallpapersSliverGridBuilderState
             ),
             itemCount: state.wallpapers.length,
             itemBuilder: (context, index) {
-              return WallpaperItem(wallpaper: state.wallpapers[index],);
+              return  WallpaperItem(wallpaper: state.wallpapers[index],);
             },
           );
         } else if (state is GetPhotosLoading) {
@@ -62,9 +62,9 @@ class _CategoryWallpapersSliverGridBuilderState
             ),
           );
         } else {
-          return SliverToBoxAdapter(
+          return const SliverToBoxAdapter(
             child: Center(
-              child: const CircularProgressIndicator(color: Colors.black),
+              child:  CircularProgressIndicator(color: Colors.black),
             ),
           );
         }

@@ -17,7 +17,7 @@ class TrendingRecentNewItem extends StatelessWidget {
   final bool isSelected;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return  GestureDetector(
       onTap: onTap,
       child: Container(
         width: 75.w,
@@ -25,15 +25,15 @@ class TrendingRecentNewItem extends StatelessWidget {
         decoration:
             isSelected
                 ? ShapeDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     begin: Alignment(1.00, -0.04),
                     end: Alignment(-1, 0.04),
-                    colors: [Color(0xFF00FFEF), Color(0xFF6747E7)],
+                    colors: [ Color(0xFF00FFEF), Color(0xFF6747E7)],
                   ),
-                  shape: RoundedRectangleBorder(
+                  shape:  RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40),
                   ),
-                  shadows: [
+                  shadows:const [
                     BoxShadow(
                       color: Color(0x3F000000),
                       blurRadius: 4,
@@ -43,7 +43,7 @@ class TrendingRecentNewItem extends StatelessWidget {
                   ],
                 )
                 : null,
-        child: Center(
+        child:  Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -54,8 +54,8 @@ class TrendingRecentNewItem extends StatelessWidget {
                   image,
                   colorFilter:
                       isSelected
-                          ? ColorFilter.mode(Colors.white, BlendMode.srcIn)
-                          : ColorFilter.mode(
+                          ? const ColorFilter.mode( Color(0xFFFFFFFF), BlendMode.srcIn)
+                          : const ColorFilter.mode(
                             Color(0xFF6747E7),
                             BlendMode.srcIn,
                           ),
@@ -65,9 +65,9 @@ class TrendingRecentNewItem extends StatelessWidget {
                 title,
                 colors:
                     isSelected
-                        ? [Colors.white, Colors.white]
+                        ? const [ Color(0xFFFFFFFF), Color(0xFFFFFFFF)]
                         : const [Color(0xFF6747E7), Color(0xFF02ADA2)],
-                style: Styles.semiBold13,
+                style:  Styles.semiBold13,
               ),
             ],
           ),

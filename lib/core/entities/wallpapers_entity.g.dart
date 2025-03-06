@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'wallpaper_entity.dart';
+part of 'wallpapers_entity.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
@@ -8,7 +8,7 @@ part of 'wallpaper_entity.dart';
 
 class WallpaperEntityAdapter extends TypeAdapter<WallpaperEntity> {
   @override
-  final int typeId = 6;
+  final int typeId = 9;
 
   @override
   WallpaperEntity read(BinaryReader reader) {
@@ -18,7 +18,7 @@ class WallpaperEntityAdapter extends TypeAdapter<WallpaperEntity> {
     };
     return WallpaperEntity(
       id: fields[0] as String,
-      urls: fields[1] as UrlsEntity,
+      imageUrl: fields[1] as String,
     );
   }
 
@@ -29,7 +29,7 @@ class WallpaperEntityAdapter extends TypeAdapter<WallpaperEntity> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.urls);
+      ..write(obj.imageUrl);
   }
 
   @override

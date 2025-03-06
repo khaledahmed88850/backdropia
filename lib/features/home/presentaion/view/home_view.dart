@@ -14,14 +14,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => GetPhotosCubit(getIt<HomeRepo>())),
+      providers:  [
+        BlocProvider(create: (context) =>  GetPhotosCubit(getIt<HomeRepo>())),
         BlocProvider(
           create: (context) => GetRandomPhotosCubit(getIt<HomeRepo>()),
         ),
       ],
       child: Scaffold(
-        body: SafeArea(child: HomeViewBody(controller: controller)),
+        body: SafeArea(child:  HomeViewBody(controller: controller)),
       ),
     );
   }

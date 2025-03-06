@@ -1,5 +1,5 @@
 import 'package:backdropia/constants.dart';
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:hive/hive.dart';
 
 bool isFavorited(String wallpaperId) {

@@ -9,7 +9,7 @@ class CategoryViewBody extends StatelessWidget {
   final PersistentTabController controller;
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return  Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: CustomScrollView(
         slivers: [
@@ -22,8 +22,8 @@ class CategoryViewBody extends StatelessWidget {
               },
             ),
           ),
-          SliverToBoxAdapter(child: SizedBox(height: 16)),
-          CategorySliverGridBuilder(),
+       const   SliverToBoxAdapter(child: SizedBox(height: 16)),
+       const   CategorySliverGridBuilder(),
         ],
       ),
     );

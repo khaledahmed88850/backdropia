@@ -1,7 +1,6 @@
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../constants.dart';
 import 'row_wallpaper.dart';
 
 class RowWallpaperPageView extends StatelessWidget {
@@ -16,18 +15,12 @@ class RowWallpaperPageView extends StatelessWidget {
   final int currentIndex;
   @override
   Widget build(BuildContext context) {
-    return PageView(
+    return  PageView(
       controller: pageController,
       children: [
-        RowWallpaper(
-          image: wallpapers[0].urls.regular ?? testImage3,
-        ),
-        RowWallpaper(
-          image: wallpapers[1].urls.regular ?? testImage2,
-        ),
-        RowWallpaper(
-          image: wallpapers[2].urls.regular ?? testImage,
-        ),
+        RowWallpaper(image:  wallpapers[0].imageUrl),
+        RowWallpaper(image: wallpapers[1].imageUrl),
+        RowWallpaper(image: wallpapers[2].imageUrl),
       ],
     );
   }

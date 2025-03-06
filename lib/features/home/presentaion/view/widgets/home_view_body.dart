@@ -28,6 +28,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: CustomScrollView(
+        physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -38,7 +39,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 const SizedBox(height: 8),
                 SizedBox(
                   height: 200.h,
-                  width: double.infinity,
+                  width:  double.infinity,
                   child: const RowWallpaperPageViewController(),
                 ),
 
@@ -80,7 +81,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          HomeWallpapersSliverGridBuilder(),
+          const HomeWallpapersSliverGridBuilder(),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
         ],
       ),

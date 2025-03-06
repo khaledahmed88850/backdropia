@@ -20,27 +20,27 @@ class SetWallpaperBottomSheet extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4.h,
       decoration: ShapeDecoration(
-        color: Colors.white,
+        color: const Color(0xFFFFFFFF),
 
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
-      child: Column(
+      child:  Column(
         children: [
-          SizedBox(height: 8.h),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 160.w),
-            child: Divider(color: Colors.grey, thickness: 5),
+         const SizedBox(height: 8),
+         const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 160),
+            child:  Divider(color: Colors.grey, thickness: 5),
           ),
-          SizedBox(height: 8.h),
-          Text('What would you like to do?', style: Styles.semiBold18),
-          SizedBox(height: 16.h),
+        const  SizedBox(height: 8),
+         const Text('What would you like to do?', style: Styles.semiBold18),
+        const  SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
               width: double.infinity,
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.grey, width: 1),
+                  side: const BorderSide(color: Colors.grey, width: 1),
                   borderRadius: BorderRadius.circular(16),
                 ),
               ),
@@ -64,10 +64,10 @@ class SetWallpaperBottomSheet extends StatelessWidget {
                       image: Assets.assetsSvgsPhoneLockScreen,
                     ),
                   ),
-                  Divider(color: Colors.grey, thickness: 1, height: 20),
+                const  Divider(color: Colors.grey, thickness: 1, height: 20),
                   WallpaperSetOptions(
                     onTap: onTapBoth,
-                    text: 'Set on both screens',
+                    text: 'Set on both',
                     image: Assets.assetsSvgsPhoneBothScreens,
                   ),
                   const SizedBox(height: 8),

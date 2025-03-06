@@ -7,10 +7,11 @@ class WallpaperSetOptions extends StatelessWidget {
   const WallpaperSetOptions({
     super.key,
     required this.image,
-    required this.text, this.onTap,
+    required this.text,
+    this.onTap,
   });
   final String image, text;
-final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -18,8 +19,8 @@ final void Function()? onTap;
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 30.h, child: SvgPicture.asset(image)),
-          SizedBox(width: 8.w),
+          SizedBox(height: 35.h, child: SvgPicture.asset(image)),
+          const SizedBox(width: 8),
           Text(text, style: Styles.normal16),
         ],
       ),

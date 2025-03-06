@@ -6,14 +6,14 @@ class CategoryHeader extends StatelessWidget {
 final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return  Row(
       children: [
-        Text('Categories', style: Styles.semiBold16),
+       const Text('Categories', style: Styles.semiBold16),
 
-        Spacer(),
+       const Spacer(),
         GestureDetector(
           onTap: onTap,
-          child: Text(
+          child:  Text(
             'See All',
             style: Styles.semiBold14.copyWith(color: Colors.blueAccent),
           ),

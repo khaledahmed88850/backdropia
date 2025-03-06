@@ -1,5 +1,5 @@
 import 'package:backdropia/constants.dart';
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/helpers/favourites_feature_functions.dart';
 import 'package:backdropia/core/utils/app_styles.dart';
 import 'package:backdropia/core/utils/assets.dart';
@@ -26,7 +26,7 @@ class FavouriteWidget extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 18.r,
-          backgroundColor: Colors.black45,
+          backgroundColor: const Color(0x73000000),
           child: ValueListenableBuilder(
             valueListenable:
                 Hive.box<WallpaperEntity>(kFavoritesBox).listenable(),
@@ -36,19 +36,19 @@ class FavouriteWidget extends StatelessWidget {
               return IconButton(
                 icon: SvgPicture.asset(
                   isFavourite
-                      ? Assets.assetsSvgsFavouritesbar
+                      ?  Assets.assetsSvgsFavouritesbar
                       : Assets.assetsSvgsFavouriteIcon,
                   colorFilter:
                       isFavourite
-                          ? ColorFilter.mode(Colors.red, BlendMode.srcIn)
-                          : ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                          ? ColorFilter.mode(const Color(0xFFF44336), BlendMode.srcIn)
+                          : ColorFilter.mode(const Color(0xFFFFFFFF), BlendMode.srcIn),
                 ),
                 onPressed: onPressed,
               );
             },
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Container(
           width: 50.w,
 
@@ -57,13 +57,13 @@ class FavouriteWidget extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
-            color: Colors.black45,
+            color: const Color(0x73000000),
           ),
           child: Center(
             child: Text(
               title,
               style: Styles.semiBold13.copyWith(
-                color: Colors.white,
+                color: const Color(0xffffffff),
                 fontSize: 10.sp,
               ),
             ),

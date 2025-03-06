@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-ThemeData lightMode = ThemeData(
-
+final ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   appBarTheme: AppBarTheme(
-    backgroundColor:  Colors.grey.shade100,
+    backgroundColor: Colors.grey.shade100,
     elevation: 0,
     iconTheme: IconThemeData(color: Colors.grey.shade600),
     titleTextStyle: TextStyle(color: Colors.grey.shade900),
@@ -17,10 +16,10 @@ ThemeData lightMode = ThemeData(
   ),
 );
 
-ThemeData darkMode = ThemeData(
+final ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
   appBarTheme: AppBarTheme(
-    backgroundColor: const Color.fromARGB(255, 56, 54, 54),
+    backgroundColor: Colors.grey.shade900,
     elevation: 0,
     iconTheme: IconThemeData(color: Colors.grey.shade500),
     titleTextStyle: TextStyle(color: Colors.white),
@@ -28,6 +27,6 @@ ThemeData darkMode = ThemeData(
   ),
   colorScheme: ColorScheme.dark(
     primary: Colors.white,
-    secondary: Colors.grey.shade800,
+    secondary: Colors.grey.shade900,
   ),
 );

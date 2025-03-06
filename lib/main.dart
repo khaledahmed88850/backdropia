@@ -1,6 +1,6 @@
 import 'package:backdropia/constants.dart';
 import 'package:backdropia/core/entities/urls_entity.dart';
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/services/custom_bloc_observer.dart';
 import 'package:backdropia/core/services/service_locator.dart';
 import 'package:backdropia/core/theme_provider/theme_provider.dart';

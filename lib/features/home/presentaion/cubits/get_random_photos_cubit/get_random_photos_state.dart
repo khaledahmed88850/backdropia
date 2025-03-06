@@ -1,4 +1,4 @@
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 
 sealed class GetRandomPhotosState {}
 

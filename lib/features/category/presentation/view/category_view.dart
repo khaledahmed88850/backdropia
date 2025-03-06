@@ -7,6 +7,6 @@ class CategoryView extends StatelessWidget {
 final PersistentTabController controller;
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(child: CategoryViewBody(controller: controller,));
+    return  SafeArea(child:  CategoryViewBody(controller: controller,));
   }
 }

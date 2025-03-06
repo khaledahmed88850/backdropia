@@ -1,5 +1,5 @@
 
-import 'package:backdropia/core/entities/wallpaper_entity.dart';
+import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/helpers/favourites_feature_functions.dart';
 import 'package:backdropia/core/helpers/set_wallpaper_functions.dart';
 import 'package:backdropia/core/utils/assets.dart';
@@ -9,7 +9,6 @@ import 'package:backdropia/features/set_wallpaper/presentation/view/widgets/shar
 import 'package:blur/blur.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import 'widgets/set_walllpaper_bottom_sheet.dart';
@@ -26,22 +25,22 @@ class _SetWallpaperState extends State<SetWallpaper> {
   bool isloading = false;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       body: ModalProgressHUD(
         inAsyncCall: isloading,
         child: Stack(
           children: [
             Positioned.fill(
-              child: CachedNetworkImage(
-                imageUrl: widget.wallpaperEntity.urls.regular!,
+              child:  CachedNetworkImage(
+                imageUrl: widget.wallpaperEntity.imageUrl,
                 fit: BoxFit.fill,
               ),
             ),
-            Positioned.fill(
+           const Positioned.fill(
               child: Blur(
                 blurColor: Colors.transparent,
                 blur: 5,
-                child: const SizedBox(),
+                child:  SizedBox.shrink(),
               ),
             ),
 
@@ -55,10 +54,10 @@ class _SetWallpaperState extends State<SetWallpaper> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.81,
-                      child: ClipRRect(
+                      child:  ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: CachedNetworkImage(
-                          imageUrl: widget.wallpaperEntity.urls.regular!,
+                          imageUrl: widget.wallpaperEntity.imageUrl,
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -68,15 +67,15 @@ class _SetWallpaperState extends State<SetWallpaper> {
                     left: 0,
                     right: 0,
                     bottom: 10,
-                    child: Row(
+                    child:  Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ShareAndSetWidget(
-                          image: Assets.assetsSvgsShare,
-                          title: 'Share',
+                     const   DownloadAndSetWidget(
+                          image: Assets.assetsSvgsDownload,
+                          title: 'Download',
                         ),
-                        SizedBox(width: 20.w),
-                        ShareAndSetWidget(
+                    const    SizedBox(width: 20),
+                        DownloadAndSetWidget(
                           image: Assets.assetsSvgsBrush,
                           title: 'SET',
                           onPressed: () {
@@ -84,7 +83,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
                               isDismissible: false,
                               context: context,
                               builder: (context) {
-                                return SetWallpaperBottomSheet(
+                                return  SetWallpaperBottomSheet(
                                   onTapBoth:
                                       () async => await onTapSetWallpaper(
                                         context: context,
@@ -105,13 +104,13 @@ class _SetWallpaperState extends State<SetWallpaper> {
                             );
                           },
                         ),
-                        SizedBox(width: 20.w),
+                    const    SizedBox(width: 20),
                         FavouriteWidget(
                           wallpaperEntity: widget.wallpaperEntity,
                           onPressed: () {
                             toggleFavorite(widget.wallpaperEntity);
                           },
-                          image: Assets.assetsSvgsFavouriteIcon,
+                          image:  Assets.assetsSvgsFavouriteIcon,
                           title: 'Favourite',
                         ),
                       ],
@@ -142,7 +141,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
       isloading = true;
     });
 
-    await setWallpaperFunction(image: widget.wallpaperEntity.urls.regular!, screen: screen);
+    await setWallpaperFunction(image: widget.wallpaperEntity.imageUrl, screen: screen);
     setState(() {
       isloading = false;
     });

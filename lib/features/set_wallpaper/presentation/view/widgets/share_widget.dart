@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ShareAndSetWidget extends StatelessWidget {
-  const ShareAndSetWidget({
+class DownloadAndSetWidget extends StatelessWidget {
+  const DownloadAndSetWidget({
     super.key,
     required this.image,
     required this.title,
@@ -15,35 +15,35 @@ class ShareAndSetWidget extends StatelessWidget {
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return  Column(
       children: [
         CircleAvatar(
-          radius: 18.r,
-          backgroundColor: Colors.black45,
-          child: IconButton(
+          radius: 20.r,
+          backgroundColor:  const Color(0x73000000),
+          child:  IconButton(
             icon: SvgPicture.asset(
               image,
-              colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+              colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
             ),
             onPressed: onPressed,
           ),
         ),
-        SizedBox(height: 8),
+       const SizedBox(height: 8),
         Container(
-          width: 50.w,
+          width: 53.w,
 
           height: 20.h,
-          decoration: ShapeDecoration(
-            shape: RoundedRectangleBorder(
+          decoration:  ShapeDecoration(
+            shape:  RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
-            color: Colors.black45,
+            color: const Color(0x73000000),
           ),
-          child: Center(
+          child:  Center(
             child: Text(
               title,
               style: Styles.semiBold13.copyWith(
-                color: Colors.white,
+                color: const Color(0xFFFFFFFF),
                 fontSize: 10.sp,
               ),
             ),
