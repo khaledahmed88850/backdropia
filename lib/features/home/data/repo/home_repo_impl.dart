@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/error/exceptions.dart';
 import 'package:backdropia/core/error/failure.dart';
@@ -34,6 +36,8 @@ class HomeRepoImpl implements HomeRepo {
         );
       } else if (e is Customexception) {
         return left(ServerFailure(errMesage: e.message));
+      } else if (e is HttpException) {
+        return left(ServerFailure.fromResponse(e.hashCode, e));
       } else {
         return left(ServerFailure(errMesage: e.toString()));
       }
@@ -60,6 +64,8 @@ class HomeRepoImpl implements HomeRepo {
         );
       } else if (e is Customexception) {
         return left(ServerFailure(errMesage: e.message));
+      } else if (e is HttpException) {
+        return left(ServerFailure.fromResponse(e.hashCode, e));
       } else {
         return left(ServerFailure(errMesage: e.toString()));
       }
@@ -88,6 +94,8 @@ class HomeRepoImpl implements HomeRepo {
         );
       } else if (e is Customexception) {
         return left(ServerFailure(errMesage: e.message));
+      } else if (e is HttpException) {
+        return left(ServerFailure.fromResponse(e.hashCode, e));
       } else {
         return left(ServerFailure(errMesage: e.toString()));
       }

@@ -8,7 +8,7 @@ part of 'wallpapers_entity.dart';
 
 class WallpaperEntityAdapter extends TypeAdapter<WallpaperEntity> {
   @override
-  final int typeId = 9;
+  final int typeId = 12;
 
   @override
   WallpaperEntity read(BinaryReader reader) {
@@ -18,7 +18,7 @@ class WallpaperEntityAdapter extends TypeAdapter<WallpaperEntity> {
     };
     return WallpaperEntity(
       id: fields[0] as String,
-      imageUrl: fields[1] as String,
+      url: fields[1] as UrlsEntity,
     );
   }
 
@@ -29,7 +29,7 @@ class WallpaperEntityAdapter extends TypeAdapter<WallpaperEntity> {
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.imageUrl);
+      ..write(obj.url);
   }
 
   @override

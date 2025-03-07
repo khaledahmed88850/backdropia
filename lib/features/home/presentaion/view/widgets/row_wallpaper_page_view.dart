@@ -18,9 +18,9 @@ class RowWallpaperPageView extends StatelessWidget {
     return  PageView(
       controller: pageController,
       children: [
-        RowWallpaper(image:  wallpapers[0].imageUrl),
-        RowWallpaper(image: wallpapers[1].imageUrl),
-        RowWallpaper(image: wallpapers[2].imageUrl),
+        RowWallpaper(image:  wallpapers[0].url.small!),
+        RowWallpaper(image: wallpapers[1].url.small!),
+        RowWallpaper(image: wallpapers[2].url.small!),
       ],
     );
   }

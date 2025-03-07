@@ -33,11 +33,9 @@ class WallpaperItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.r),
                 child: CachedNetworkImage(
-                  placeholder: (context, url) {
-                    return const ColoredBox(color: Color(0xFF9E9E9E));
-                  },
+                 
                   errorWidget: (context, url, error) => const Icon(Icons.error),
-                  imageUrl: wallpaper.imageUrl,
+                  imageUrl: wallpaper.url.smallS3!,
                   fit: BoxFit.fill,
                 ),
               ),

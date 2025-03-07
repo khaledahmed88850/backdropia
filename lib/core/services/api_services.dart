@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:backdropia/core/error/exceptions.dart';
 import 'package:dio/dio.dart';
 
@@ -14,6 +16,8 @@ class ApiServices {
     } on Exception catch (e) {
       if (e is DioException) {
         throw DioException(requestOptions: e.requestOptions);
+      } else if (e is HttpException) {
+        throw HttpException(e.message, uri: e.uri);
       } else {
         throw Customexception(message: e.toString());
       }
@@ -27,6 +31,8 @@ class ApiServices {
     } on Exception catch (e) {
       if (e is DioException) {
         throw DioException(requestOptions: e.requestOptions);
+      } else if (e is HttpException) {
+        throw HttpException(e.message, uri: e.uri);
       } else {
         throw Customexception(message: e.toString());
       }

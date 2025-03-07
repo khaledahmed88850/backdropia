@@ -32,7 +32,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
           children: [
             Positioned.fill(
               child:  CachedNetworkImage(
-                imageUrl: widget.wallpaperEntity.imageUrl,
+                imageUrl: widget.wallpaperEntity.url.smallS3!,
                 fit: BoxFit.fill,
               ),
             ),
@@ -57,7 +57,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
                       child:  ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: CachedNetworkImage(
-                          imageUrl: widget.wallpaperEntity.imageUrl,
+                          imageUrl: widget.wallpaperEntity.url.regular!,
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -141,7 +141,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
       isloading = true;
     });
 
-    await setWallpaperFunction(image: widget.wallpaperEntity.imageUrl, screen: screen);
+    await setWallpaperFunction(image: widget.wallpaperEntity.url.regular!, screen: screen);
     setState(() {
       isloading = false;
     });

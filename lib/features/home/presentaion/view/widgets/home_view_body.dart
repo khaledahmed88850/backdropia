@@ -11,7 +11,7 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'row_wallpaper_page_view_controller.dart';
 import 'search_app_bar.dart';
 import 'trending_recent_new_selection.dart';
-import 'wallpaper_sliver_grid_builder.dart';
+import 'wallpapers_bloc_builder.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key, required this.controller});
@@ -81,7 +81,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          const HomeWallpapersSliverGridBuilder(),
+          const HomeWallpapersBlocBuilder(),
           const SliverToBoxAdapter(child: SizedBox(height: 12)),
         ],
       ),

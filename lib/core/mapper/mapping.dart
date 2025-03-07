@@ -13,6 +13,6 @@ UrlsEntity toUrlsEntity(Urls urls) => UrlsEntity(
 );
 
 WallpaperEntity toWallpaperEntity(Wallpaper wallpaper) => WallpaperEntity(
-  imageUrl: wallpaper.urls!.regular!,
+  url: toUrlsEntity(wallpaper.urls!),
   id: wallpaper.id,
 );
