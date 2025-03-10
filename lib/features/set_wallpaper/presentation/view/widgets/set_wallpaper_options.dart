@@ -19,7 +19,16 @@ class WallpaperSetOptions extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 35.h, child: SvgPicture.asset(image)),
+          SizedBox(
+            height: 35.h,
+            child: SvgPicture.asset(
+              image,
+              colorFilter: ColorFilter.mode(
+                Theme.of(context).colorScheme.primary,
+                BlendMode.srcIn,
+              ),
+            ),
+          ),
           const SizedBox(width: 8),
           Text(text, style: Styles.normal16),
         ],

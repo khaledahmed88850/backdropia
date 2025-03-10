@@ -1,3 +1,4 @@
+import 'dart:async';
 
 import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/helpers/favourites_feature_functions.dart';
@@ -8,6 +9,7 @@ import 'package:backdropia/features/set_wallpaper/presentation/view/widgets/favo
 import 'package:backdropia/features/set_wallpaper/presentation/view/widgets/share_widget.dart';
 import 'package:blur/blur.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fl_downloader/fl_downloader.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -23,24 +25,66 @@ class SetWallpaper extends StatefulWidget {
 
 class _SetWallpaperState extends State<SetWallpaper> {
   bool isloading = false;
+  late StreamSubscription progressStream;
+  int progress = 0;
+  dynamic downloadId;
+  String? status;
+  @override
+  void initState() {
+    FlDownloader.initialize();
+    progressStream = FlDownloader.progressStream.listen((event) {
+      if (event.status == DownloadStatus.successful) {
+        debugPrint('event.progress: ${event.progress}');
+        setState(() {
+          progress = event.progress;
+          downloadId = event.downloadId;
+          status = event.status.name;
+        });
+        // This is a way of auto-opening downloaded file right after a download is completed
+        FlDownloader.openFile(filePath: event.filePath);
+      } else if (event.status == DownloadStatus.running) {
+        debugPrint('event.progress: ${event.progress}');
+        setState(() {
+          progress = event.progress;
+          downloadId = event.downloadId;
+          status = event.status.name;
+        });
+      } else if (event.status == DownloadStatus.failed) {
+        debugPrint('event: $event');
+        setState(() {
+          progress = event.progress;
+          downloadId = event.downloadId;
+          status = event.status.name;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    progressStream.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: ModalProgressHUD(
         inAsyncCall: isloading,
         child: Stack(
           children: [
             Positioned.fill(
-              child:  CachedNetworkImage(
+              child: CachedNetworkImage(
                 imageUrl: widget.wallpaperEntity.url.smallS3!,
                 fit: BoxFit.fill,
               ),
             ),
-           const Positioned.fill(
+            const Positioned.fill(
               child: Blur(
                 blurColor: Colors.transparent,
                 blur: 5,
-                child:  SizedBox.shrink(),
+                child: SizedBox.shrink(),
               ),
             ),
 
@@ -54,7 +98,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.81,
-                      child:  ClipRRect(
+                      child: ClipRRect(
                         borderRadius: BorderRadius.circular(16),
                         child: CachedNetworkImage(
                           imageUrl: widget.wallpaperEntity.url.regular!,
@@ -67,14 +111,25 @@ class _SetWallpaperState extends State<SetWallpaper> {
                     left: 0,
                     right: 0,
                     bottom: 10,
-                    child:  Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                     const   DownloadAndSetWidget(
+                        DownloadAndSetWidget(
+                          onPressed: () async {
+                            final permission =
+                                await FlDownloader.requestPermission();
+                            if (permission == StoragePermissionStatus.granted) {
+                              await FlDownloader.download(
+                                widget.wallpaperEntity.url.regular!,
+                              );
+                            } else {
+                              debugPrint('Permission denied =(');
+                            }
+                          },
                           image: Assets.assetsSvgsDownload,
                           title: 'Download',
                         ),
-                    const    SizedBox(width: 20),
+                        const SizedBox(width: 20),
                         DownloadAndSetWidget(
                           image: Assets.assetsSvgsBrush,
                           title: 'SET',
@@ -83,7 +138,7 @@ class _SetWallpaperState extends State<SetWallpaper> {
                               isDismissible: false,
                               context: context,
                               builder: (context) {
-                                return  SetWallpaperBottomSheet(
+                                return SetWallpaperBottomSheet(
                                   onTapBoth:
                                       () async => await onTapSetWallpaper(
                                         context: context,
@@ -104,13 +159,13 @@ class _SetWallpaperState extends State<SetWallpaper> {
                             );
                           },
                         ),
-                    const    SizedBox(width: 20),
+                        const SizedBox(width: 20),
                         FavouriteWidget(
                           wallpaperEntity: widget.wallpaperEntity,
                           onPressed: () {
                             toggleFavorite(widget.wallpaperEntity);
                           },
-                          image:  Assets.assetsSvgsFavouriteIcon,
+                          image: Assets.assetsSvgsFavouriteIcon,
                           title: 'Favourite',
                         ),
                       ],
@@ -141,7 +196,10 @@ class _SetWallpaperState extends State<SetWallpaper> {
       isloading = true;
     });
 
-    await setWallpaperFunction(image: widget.wallpaperEntity.url.regular!, screen: screen);
+    await setWallpaperFunction(
+      image: widget.wallpaperEntity.url.regular!,
+      screen: screen,
+    );
     setState(() {
       isloading = false;
     });

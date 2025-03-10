@@ -10,21 +10,29 @@ class CategoryCardItem extends StatelessWidget {
   final CategoryModel categoryModel;
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
+    return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
-            builder:
-                (context) =>
+          PageRouteBuilder(
+            pageBuilder:
+                (context, animation, secondaryAnimation) =>
                     WallpaperCategoryPresentationView(tag: categoryModel.name),
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
+              return FadeTransition(opacity: animation, child: child);
+            },
           ),
         );
       },
       child: Container(
         width: 80.w,
-        decoration:  BoxDecoration(
-          boxShadow:const [
+        decoration: BoxDecoration(
+          boxShadow: const [
             BoxShadow(offset: Offset(0, 0), blurRadius: 2, color: Colors.black),
           ],
           image: DecorationImage(
@@ -34,7 +42,7 @@ class CategoryCardItem extends StatelessWidget {
           ),
           borderRadius: const BorderRadius.all(Radius.circular(16)),
         ),
-        child:  Center(
+        child: Center(
           child: Text(
             categoryModel.name,
             style: Styles.bold16.copyWith(color: Colors.white),

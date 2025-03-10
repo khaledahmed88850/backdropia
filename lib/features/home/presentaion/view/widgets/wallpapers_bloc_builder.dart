@@ -1,4 +1,3 @@
-import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/core/utils/dummy_wallpaper.dart';
 import 'package:backdropia/features/home/presentaion/cubits/get_photos_cubit/get_photos_cubit.dart';
@@ -19,7 +18,7 @@ class _HomeWallpapersBlocBuilderState extends State<HomeWallpapersBlocBuilder> {
   void initState() {
     context.read<GetPhotosCubit>().getPhotos(
       getParamsModel: GetParamsModel(
-        perPage: 80,
+        perPage: 50,
         query: '',
         page: 1,
         orientation: 'portrait',
@@ -50,5 +49,3 @@ class _HomeWallpapersBlocBuilderState extends State<HomeWallpapersBlocBuilder> {
     );
   }
 }
-
-

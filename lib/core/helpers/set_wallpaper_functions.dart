@@ -12,6 +12,8 @@ Future<void> setWallpaperFunction({
     location = WallpaperManager.HOME_SCREEN;
   } else if (screen == 'lock') {
     location = WallpaperManager.LOCK_SCREEN;
+  } else if (screen == 'both') {
+    location = WallpaperManager.BOTH_SCREEN;
   } else {
     location = WallpaperManager.BOTH_SCREEN;
   }

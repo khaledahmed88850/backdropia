@@ -4,13 +4,11 @@ import 'package:backdropia/core/entities/wallpapers_entity.dart';
 import 'package:backdropia/core/services/custom_bloc_observer.dart';
 import 'package:backdropia/core/services/service_locator.dart';
 import 'package:backdropia/core/theme_provider/theme_provider.dart';
-import 'package:backdropia/core/widgets/custom_bottom_navigation_bar.dart';
-import 'package:backdropia/features/home/presentaion/view/home_view.dart';
+import 'package:backdropia/features/home/presentaion/view/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -21,9 +19,12 @@ Future<void> main() async {
   Hive.registerAdapter(WallpaperEntityAdapter());
   await Hive.openBox<WallpaperEntity>(kFavoritesBox);
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeProvider(),
-    child: const BackDropia()));
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const BackDropia(),
+    ),
+  );
 }
 
 class BackDropia extends StatelessWidget {
@@ -35,9 +36,9 @@ class BackDropia extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-        theme: Provider.of<ThemeProvider>(context).getTheme ,
+        theme: Provider.of<ThemeProvider>(context).getTheme,
         debugShowCheckedModeBanner: false,
-        home:  HomeView(controller: PersistentTabController())
+        home: const MainScreen(),
       ),
     );
   }

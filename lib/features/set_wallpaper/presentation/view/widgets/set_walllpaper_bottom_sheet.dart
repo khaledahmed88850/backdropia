@@ -20,20 +20,20 @@ class SetWallpaperBottomSheet extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4.h,
       decoration: ShapeDecoration(
-        color: const Color(0xFFFFFFFF),
+        color: Theme.of(context).appBarTheme.backgroundColor,
 
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
-      child:  Column(
+      child: Column(
         children: [
-         const SizedBox(height: 8),
-         const Padding(
+          const SizedBox(height: 8),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 160),
-            child:  Divider(color: Colors.grey, thickness: 5),
+            child: Divider(color: Colors.grey, thickness: 5),
           ),
-        const  SizedBox(height: 8),
-         const Text('What would you like to do?', style: Styles.semiBold18),
-        const  SizedBox(height: 16),
+          const SizedBox(height: 8),
+          const Text('What would you like to do?', style: Styles.semiBold18),
+          const SizedBox(height: 16),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
@@ -64,7 +64,7 @@ class SetWallpaperBottomSheet extends StatelessWidget {
                       image: Assets.assetsSvgsPhoneLockScreen,
                     ),
                   ),
-                const  Divider(color: Colors.grey, thickness: 1, height: 20),
+                  const Divider(color: Colors.grey, thickness: 1, height: 20),
                   WallpaperSetOptions(
                     onTap: onTapBoth,
                     text: 'Set on both',

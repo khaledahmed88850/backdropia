@@ -9,7 +9,7 @@ class WallpaperCategoryPresentationViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: CustomScrollView(
         slivers: [
@@ -23,7 +23,7 @@ class WallpaperCategoryPresentationViewBody extends StatelessWidget {
             ),
           ),
           CategoryWallpapersSliverGridBuilder(
-            getParamsModel: GetParamsModel(query: tag , perPage: 30),
+            getParamsModel: GetParamsModel(query: tag, perPage: 30),
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/core/utils/dummy_wallpaper.dart';
@@ -19,6 +20,7 @@ class RowWallpaperPageViewController extends StatefulWidget {
 
 class _RowWallpaperPageViewControllerState
     extends State<RowWallpaperPageViewController> {
+  Timer? _timer;
   int currentIndex = 0;
   late PageController pageController;
   @override
@@ -32,17 +34,25 @@ class _RowWallpaperPageViewControllerState
         currentIndex = pageController.page!.toInt();
       });
     });
+    excuteTimer();
     super.initState();
   }
 
   @override
+  void dispose() {
+    pageController.dispose();
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
         BlocBuilder<GetRandomPhotosCubit, GetRandomPhotosState>(
           builder: (context, state) {
             if (state is GetRandomPhotosSuccess) {
-              return  Expanded(
+              return Expanded(
                 child: RowWallpaperPageView(
                   wallpapers: state.wallpapers,
                   pageController: pageController,
@@ -50,12 +60,14 @@ class _RowWallpaperPageViewControllerState
                 ),
               );
             } else if (state is GetRandomPhotosFailure) {
-              return  Expanded(
+              return Expanded(
                 child: Row(
-                  mainAxisAlignment:  MainAxisAlignment.center,
-                  children: [ const Icon(Icons.error),
-                 const SizedBox(width: 8,),
-                   Text(state.errorMessage)],
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.error),
+                    const SizedBox(width: 8),
+                    Text(state.errorMessage),
+                  ],
                 ),
               );
             } else {
@@ -71,7 +83,7 @@ class _RowWallpaperPageViewControllerState
             }
           },
         ),
-     const   SizedBox(height: 5),
+        const SizedBox(height: 5),
         DotsIndicator(
           animationDuration: Duration(milliseconds: 500),
 
@@ -92,5 +104,10 @@ class _RowWallpaperPageViewControllerState
     );
   }
 
-
+  excuteTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 15), (timer) {
+      pageController.jumpToPage(currentIndex == 2 ? 0 : currentIndex + 1);
+      (duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+    });
+  }
 }

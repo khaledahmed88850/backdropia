@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/pexels-tobiasbjorkli-1663376.jpg
   static const String assetsImagesPexelsTobiasbjorkli1663376 = "assets/images/pexels-tobiasbjorkli-1663376.jpg";
 
+  /// Assets for assetsImagesSplash
+  /// assets/images/splash.png
+  static const String assetsImagesSplash = "assets/images/splash.png";
+
   /// Assets for assetsSvgsBrush
   /// assets/svgs/brush.svg
   static const String assetsSvgsBrush = "assets/svgs/brush.svg";

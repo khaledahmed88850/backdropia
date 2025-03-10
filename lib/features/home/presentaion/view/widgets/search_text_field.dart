@@ -8,7 +8,8 @@ class SearchTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  TextField(
+    return TextField(
+      style: Styles.bold13.copyWith(color: const Color(0xDD000000)),
       onSubmitted: (value) {
         Navigator.push(
           context,
@@ -19,15 +20,15 @@ class SearchTextField extends StatelessWidget {
           ),
         );
       },
-      decoration:  InputDecoration(
+      decoration: InputDecoration(
         suffixIcon: const Icon(Icons.search),
         suffixIconColor: const Color(0xFF979797),
         filled: true,
         fillColor: Color(0xffF0F0F0),
 
         hintText: 'find wallpaper..',
-        hintStyle: Styles.semiBold13.copyWith(color: Color(0xFF979797)),
-        border:  buildBorder(),
+        hintStyle: Styles.semiBold13.copyWith(color: const Color(0xFF979797)),
+        border: buildBorder(),
         focusedBorder: buildBorder().copyWith(
           borderSide: BorderSide(color: const Color(0x0F413C3B), width: 1.w),
         ),
@@ -36,7 +37,7 @@ class SearchTextField extends StatelessWidget {
   }
 
   OutlineInputBorder buildBorder() {
-    return  OutlineInputBorder(
+    return OutlineInputBorder(
       borderSide: BorderSide.none,
       borderRadius: BorderRadius.circular(25.r),
     );

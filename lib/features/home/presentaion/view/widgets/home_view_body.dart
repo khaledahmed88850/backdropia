@@ -1,12 +1,12 @@
+import 'package:backdropia/core/helpers/indexed_stack_provider.dart';
 import 'package:backdropia/core/models/get_params_model/get_params_model.dart';
 import 'package:backdropia/features/home/presentaion/cubits/get_photos_cubit/get_photos_cubit.dart';
 import 'package:backdropia/features/home/presentaion/view/widgets/category_header.dart';
 
 import 'package:backdropia/features/home/presentaion/view/widgets/category_list_view_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
+import 'package:provider/provider.dart';
 
 import 'row_wallpaper_page_view_controller.dart';
 import 'search_app_bar.dart';
@@ -14,8 +14,7 @@ import 'trending_recent_new_selection.dart';
 import 'wallpapers_bloc_builder.dart';
 
 class HomeViewBody extends StatefulWidget {
-  const HomeViewBody({super.key, required this.controller});
-  final PersistentTabController controller;
+  const HomeViewBody({super.key});
 
   @override
   State<HomeViewBody> createState() => _HomeViewBodyState();
@@ -28,7 +27,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: CustomScrollView(
-        physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -39,17 +38,20 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                 const SizedBox(height: 8),
                 SizedBox(
                   height: 200.h,
-                  width:  double.infinity,
+                  width: double.infinity,
                   child: const RowWallpaperPageViewController(),
                 ),
 
                 CategoryHeader(
                   onTap: () {
-                    widget.controller.index = 1;
+                    Provider.of<IndexStackProvider>(
+                      context,
+                      listen: false,
+                    ).setIndex(1);
                   },
                 ),
                 const SizedBox(height: 4),
-                SizedBox(height: 70.h, child: CategoryListViewBuilder()),
+                SizedBox(height: 70.h, child: const CategoryListViewBuilder()),
                 const SizedBox(height: 15),
                 TrendingRecentNewSelection(
                   onTap: (value) {
@@ -66,7 +68,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                       }
                       context.read<GetPhotosCubit>().getPhotos(
                         getParamsModel: GetParamsModel(
-                          perPage: 80,
+                          perPage: 50,
                           query: '',
                           page: pageNumber,
                           orientation: 'portrait',

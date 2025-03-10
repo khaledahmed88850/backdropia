@@ -33,7 +33,6 @@ class WallpaperItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.r),
                 child: CachedNetworkImage(
-                 
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                   imageUrl: wallpaper.url.smallS3!,
                   fit: BoxFit.fill,
@@ -48,7 +47,7 @@ class WallpaperItem extends StatelessWidget {
           child: GestureDetector(
             onTap: () => toggleFavorite(wallpaper),
             child: CircleAvatar(
-              backgroundColor: Colors.black45,
+              backgroundColor: const Color(0x73000000),
               radius: 12.r,
               child: ValueListenableBuilder(
                 valueListenable:

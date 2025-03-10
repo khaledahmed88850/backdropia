@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TrendingRecentNewSelection extends StatefulWidget {
-  const TrendingRecentNewSelection({super.key, required this.onTap, });
-final ValueChanged<int> onTap;
+  const TrendingRecentNewSelection({super.key, required this.onTap});
+  final ValueChanged<int> onTap;
   @override
   State<TrendingRecentNewSelection> createState() =>
       _TrendingRecentNewSelectionState();

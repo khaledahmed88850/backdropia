@@ -49,6 +49,6 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        targetSdk = 31
+        targetSdk = 34
     }
 }
