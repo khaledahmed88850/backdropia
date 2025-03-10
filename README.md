@@ -1,4 +1,5 @@
 # Backdropia - Wallpaper App
+![app_icon](https://github.com/user-attachments/assets/e5c10ef0-a803-4e5b-bdf5-7db3d28908ef)
 
 Backdropia is a beautifully designed mobile application that offers a vast collection of high-quality wallpapers for your device. Whether you're looking for stunning landscapes, abstract designs, or minimalist patterns, Backdropia has something for everyone.
 
@@ -15,7 +16,7 @@ Backdropia is a beautifully designed mobile application that offers a vast colle
 
 ## Screenshots
 
-![Screenshot_1741201075](https://github.com/user-attachments/assets/757d085a-559a-4c84-96b8-ccf07462b596) | ![Screenshot_1741201082](https://github.com/user-attachments/assets/c5f01d36-4d16-414f-b29d-b6a68e68d5e5) | ![Screenshot_1741200427](https://github.com/user-attachments/assets/4fa4ec70-09ed-4529-9d2a-27d6896d5010) | ![Screenshot_1741201858](https://github.com/user-attachments/assets/3c132a37-650b-434b-8df1-d40b7565c483) | ![Screenshot_1741200769](https://github.com/user-attachments/assets/5eceb7d6-bf1a-48ac-aa70-ed38373e9437)
+![Screenshot_1741640049](https://github.com/user-attachments/assets/5e1ca8db-7797-4ef7-afc4-b498f4962100) | ![Screenshot_1741640060](https://github.com/user-attachments/assets/a1023320-a3cd-45c9-96f0-90c0b9d4e829) | ![Screenshot_1741640079](https://github.com/user-attachments/assets/9b93b100-3206-4d64-b0a1-e63f7cc65d2e) | ![Screenshot_1741640121](https://github.com/user-attachments/assets/448254df-9599-4c72-b793-ddd31436416a) | ![Screenshot_1741200769](https://github.com/user-attachments/assets/5eceb7d6-bf1a-48ac-aa70-ed38373e9437)
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
 *Home Screen* | *Home Screen Dark Mode* | *Categories* | *Favourites* | *Wallpaper Preview*
 
