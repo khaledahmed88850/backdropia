@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 class WallpaperItem extends StatelessWidget {
   const WallpaperItem({super.key, required this.wallpaper});
@@ -19,11 +18,21 @@ class WallpaperItem extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            PersistentNavBarNavigator.pushNewScreen(
+            Navigator.push(
               context,
-              screen: SetWallpaper(wallpaperEntity: wallpaper),
-              withNavBar: false,
-              pageTransitionAnimation: PageTransitionAnimation.fade,
+              PageRouteBuilder(
+                pageBuilder:
+                    (context, animation, secondaryAnimation) =>
+                        SetWallpaper(wallpaperEntity: wallpaper),
+                transitionsBuilder: (
+                  context,
+                  animation,
+                  secondaryAnimation,
+                  child,
+                ) {
+                  return FadeTransition(opacity: animation, child: child);
+                },
+              ),
             );
           },
           child: SizedBox(
